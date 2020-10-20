@@ -70,7 +70,7 @@ export const addNewPatientSchema = new Schema ({
 });
 
 
-export const addPatientMedicalHistorySchema = new Schema ({
+export const addPatientMedicalHistorySchema  = new Schema ({
     diseases : 
     {
         type: String

@@ -78,7 +78,7 @@ export const addMedicalHistory = (req,res) =>
     });
 }
 
-export const getPatientMedicalHistory = (req,res) => 
+export const getPatientMedicalHistory  = (req,res) => 
 {
     MedicalHistory.find({},(err,patient)=>
         {

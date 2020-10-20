@@ -18,7 +18,7 @@ const routes = (app) =>
             .put(updatePatient)  
             .delete(deletePatient),
 
-        app.route('/patients/medicalhistory')
+        app.route('/patients/medicalhistory') 
             .post(addMedicalHistory)
             .get(getPatientMedicalHistory)
 }
