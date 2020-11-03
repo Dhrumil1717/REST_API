@@ -1,9 +1,10 @@
-import mongoose from'mongoose';
-import {addNewPatientSchema} from '../models/patientModels';
+const mongoose = require('mongoose');
+const addNewPatientSchema = require('../models/patientModels');
+// import {addNewPatientSchema} from '../models/patientModels';
 
 const Patient = mongoose.model('Patient',addNewPatientSchema);
 
-export const addNewPatient = (req,res) => 
+ const addNewPatient = (req,res) => 
 {
     let newPatient = new Patient(req.body)
     newPatient.save((err,patient)=>
@@ -17,7 +18,7 @@ export const addNewPatient = (req,res) =>
     });
 }
 
-export const getPatient = (req,res) => 
+ const getPatient = (req,res) => 
 {
     Patient.find({},(err,patient)=>
         {
@@ -30,7 +31,7 @@ export const getPatient = (req,res) =>
         });  
 }
 
-export const getPatientWithId = (req,res) => 
+ const getPatientWithId = (req,res) => 
 {
     Patient.findById(req.params.patientID,(err,patient)=>
         {
@@ -43,7 +44,7 @@ export const getPatientWithId = (req,res) =>
         });  
 }
 
-export const updatePatient= (req,res) => 
+ const updatePatient= (req,res) => 
 {
     Patient.findOneAndUpdate({_id:req.params.patientID},req.body,{new:true , useFindAndModify:false},(err,patient)=>
         {
@@ -56,7 +57,7 @@ export const updatePatient= (req,res) =>
         });  
 }
 
-export const deletePatient = (req,res) => 
+ const deletePatient = (req,res) => 
 {
     Patient.remove({_id:req.params.patientID},(err,patient)=>
         {
@@ -68,3 +69,4 @@ export const deletePatient = (req,res) =>
             console.log("DELETE request :Delete patient by id ")
         });  
 }
+module.exports = {addNewPatient,getPatient,getPatientWithId,updatePatient,deletePatient}

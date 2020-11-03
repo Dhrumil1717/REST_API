@@ -4,7 +4,7 @@
   "description": "Milestone 2...implementing three use cases",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./index.js --exec babel-node -e js"
+    "start": "node index.js"
   },
   "author": "DhrumilMalaviya and Nithyanand Mahalingam",
   "license": "ISC",

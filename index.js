@@ -1,7 +1,7 @@
-import express from 'express'
-import routes from './src/routes/patientRoutes'
-import mongoose from 'mongoose'
-import bodyParser from 'body-parser'
+const express  = require('express');
+const routes  = require('./src/routes/patientRoutes');
+const mongoose  = require('mongoose');
+const bodyParser  = require('body-parser');
 
 const app = express();
 const PORT = process.env.PORT || 40004;
