@@ -4,7 +4,7 @@ import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
 
 const app = express();
-const PORT = 40004;
+const PORT = process.env.PORT || 40004;
 
 //Mongoose connection
 mongoose.Promise=global.Promise  //we are going to wait for result when we are connecting to mongo db
