@@ -8,7 +8,6 @@ const PORT = process.env.PORT || 40004;
 
 //Mongoose connection
 mongoose.Promise=global.Promise  //we are going to wait for result when we are connecting to mongo db
-//mongoose.connect('mongodb://localhost/PatientsDB', //conneting a DB with name "PatientsDB"
 mongoose.connect('mongodb+srv://Dhrumil:12345@cluster0.oxuv1.mongodb.net/PatientsDB?retryWrites=true&w=majority',
 {
     useNewUrlParser : true,

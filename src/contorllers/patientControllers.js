@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
 const addNewPatientSchema = require('../models/patientModels');
+const addNewAccessCodeSchema = require('../models/patientModels')
 // import {addNewPatientSchema} from '../models/patientModels';
 
 const Patient = mongoose.model('Patient',addNewPatientSchema);
+const AccessCode= mongoose.model('AccessCode',addNewAccessCodeSchema);
 
  const addNewPatient = (req,res) => 
 {
@@ -18,7 +20,7 @@ const Patient = mongoose.model('Patient',addNewPatientSchema);
     });
 }
 
- const getPatient = (req,res) => 
+const getPatient = (req,res) => 
 {
     Patient.find({},(err,patient)=>
         {
@@ -27,7 +29,35 @@ const Patient = mongoose.model('Patient',addNewPatientSchema);
                 res.send(err);
             }
             res.json(patient);
-            console.log("GET request :Found all patients")
+            console.log("GET request :Found all Patients")
+        });  
+}
+
+
+const addNewAccessCode = (req,res) => 
+{
+    let newAccessCode = new AccessCode(req.body)
+    newAccessCode.save((err,accessCode)=>
+    {
+        if(err)
+        {
+            res.send(err);
+        }
+        res.json(accessCode);
+        console.log("POST request :Entry created in database ")
+    });
+}
+
+ const getAccessCode = (req,res) => 
+{
+    AccessCode.find({},(err,accessCode)=>
+        {
+            if(err)
+            {
+                res.send(err);
+            }
+            res.json(accessCode);
+            console.log("GET request :Found all accessCode")
         });  
 }
 
@@ -69,4 +99,4 @@ const Patient = mongoose.model('Patient',addNewPatientSchema);
             console.log("DELETE request :Delete patient by id ")
         });  
 }
-module.exports = {addNewPatient,getPatient,getPatientWithId,updatePatient,deletePatient}
+module.exports = {addNewPatient,getPatient,getPatientWithId,updatePatient,deletePatient,addNewAccessCode,getAccessCode}
