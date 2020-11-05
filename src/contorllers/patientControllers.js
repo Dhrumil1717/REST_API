@@ -74,6 +74,19 @@ const addNewAccessCode = (req,res) =>
         });  
 }
 
+const getPatientWithName = (req,res) => 
+{
+    Patient.find(req.params.firstName,(err,patient)=>
+        {
+            if(err)
+            {
+                res.send(err);
+            }
+            res.json(patient);
+            console.log("GET request :Found patient by name");
+        });  
+}
+
  const updatePatient= (req,res) => 
 {
     Patient.findOneAndUpdate({_id:req.params.patientID},req.body,{new:true , useFindAndModify:false},(err,patient)=>
@@ -99,4 +112,4 @@ const addNewAccessCode = (req,res) =>
             console.log("DELETE request :Delete patient by id ")
         });  
 }
-module.exports = {addNewPatient,getPatient,getPatientWithId,updatePatient,deletePatient,addNewAccessCode,getAccessCode}
+module.exports = {addNewPatient,getPatient,getPatientWithId,getPatientWithName,updatePatient,deletePatient,addNewAccessCode,getAccessCode}

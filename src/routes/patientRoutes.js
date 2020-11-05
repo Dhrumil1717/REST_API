@@ -1,5 +1,5 @@
 //import { addNewPatient,getPatient,getPatientWithId,updatePatient,deletePatient} from '../contorllers/patientControllers'
-const { addNewPatient,getPatient,getPatientWithId,updatePatient,deletePatient,getAccessCode,addNewAccessCode} = require('../contorllers/patientControllers');
+const { addNewPatient,getPatient,getPatientWithId, updatePatient,deletePatient,getAccessCode,addNewAccessCode, getPatientWithName} = require('../contorllers/patientControllers');
 const routes = (app) => 
 {
         app.route('/patients')
@@ -15,6 +15,9 @@ const routes = (app) =>
             .get(getPatientWithId)
             .put(updatePatient)  
             .delete(deletePatient)
+
+        app.route('/patients/:firstName')
+            .get(getPatientWithName)
 }
 
 //export default routes
