@@ -96,7 +96,7 @@ const addNewPatientSchema = new Schema ({
     {
         type: Boolean
     },
-    conition:
+    condition:
     {
         type: String
     }
