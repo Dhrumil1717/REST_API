@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const addNewPatientSchema = require('../models/patientModels');
 const addNewAccessCodeSchema = require('../models/patientModels')
-// import {addNewPatientSchema} from '../models/patientModels';
+
 
 const Patient = mongoose.model('Patient',addNewPatientSchema);
 const AccessCode= mongoose.model('AccessCode',addNewAccessCodeSchema);
@@ -76,7 +76,8 @@ const addNewAccessCode = (req,res) =>
 
 const getPatientWithName = (req,res) => 
 {
-    Patient.find(req.params.firstName,(err,patient)=>
+    console.log('getname api called =+++>')
+    Patient.find({firstName: req.params.firstName},(err,patient)=>
         {
             if(err)
             {

@@ -95,6 +95,10 @@ const addNewPatientSchema = new Schema ({
     consumeTobaccoOrSmoke: 
     {
         type: Boolean
+    },
+    conition:
+    {
+        type: String
     }
 });
 
