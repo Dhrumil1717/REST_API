@@ -1,12 +1,8 @@
 //import mongoose, { mongo } from 'mongoose'
 const mongoose = require ('mongoose')
 const Schema = mongoose.Schema;
-const addNewAccessCodeSchema = new Schema({
-    accessCode : 
-    {
-        type: String
-    }
-})
+
+
 
 const addNewPatientSchema = new Schema ({
     firstName : 
@@ -103,4 +99,4 @@ const addNewPatientSchema = new Schema ({
 });
 
 module.exports = addNewPatientSchema;
-module.exports = addNewAccessCodeSchema;
+

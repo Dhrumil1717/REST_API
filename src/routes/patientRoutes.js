@@ -1,5 +1,5 @@
 //import { addNewPatient,getPatient,getPatientWithId,updatePatient,deletePatient} from '../contorllers/patientControllers'
-const { addNewPatient,getPatient,getPatientWithId, updatePatient,deletePatient,getAccessCode,addNewAccessCode, getPatientWithName} = require('../contorllers/patientControllers');
+const { addNewPatient,getPatient,getPatientWithId, updatePatientCondition,updatePatient,deletePatient,getAccessCode,addNewAccessCode, getPatientWithName} = require('../contorllers/patientControllers');
 const routes = (app) => 
 {
         app.route('/patients')
@@ -11,13 +11,16 @@ const routes = (app) =>
             .post(addNewAccessCode),
             
 
-        app.route('/patients/:patientID')  //calling the methods to fetch/update/delete a patient with a particular id
-            .get(getPatientWithId)
-            .put(updatePatient)  
+        app.route('/patients/:firstName')  //calling the methods to fetch/update/delete a patient with a name
+            
+            .get(getPatientWithName)
+           
+            .put(updatePatientCondition) 
             .delete(deletePatient)
 
         app.route('/patientss/:firstName')
-            .get(getPatientWithName)
+            .put(updatePatient)
+            .get(getPatientWithId)
 }
 
 //export default routes
