@@ -35,9 +35,6 @@ const getPatient = (req,res) =>
         });  
 }
 
-
-
-
  const getPatientWithId = (req,res) => 
 {
     Patient.findById(req.params.patientID,(err,patient)=>
@@ -65,6 +62,19 @@ const getPatientWithName = (req,res) =>
         });  
 }
 
+const getPatientWithCondition = (req,res) => 
+{
+    console.log('getname api called =+++>')
+    Patient.find({condition: req.params.condition},(err,patient)=>
+        {
+            if(err)
+            {
+                res.send(err);
+            }
+            res.json(patient);
+            console.log("GET request :Found patient by condtion");
+        });  
+}
  const updatePatientCondition= (req,res) => 
 {
     Patient.findOneAndUpdate({firstName:req.params.firstName},{$set: {condition: req.body.condition}},{new:true , useFindAndModify:false},(err,patient)=>
@@ -131,4 +141,4 @@ const addNewAccessCode = (req,res) =>
             console.log("GET request :Found all accessCode")
         });  
 }
-module.exports = {addNewPatient,getPatient,getPatientWithId,getPatientWithName,updatePatientCondition,updatePatient,deletePatient,addNewAccessCode,getAccessCode}
+module.exports = {addNewPatient,getPatient,getPatientWithId,getPatientWithCondition,getPatientWithName,updatePatientCondition,updatePatient,deletePatient,addNewAccessCode,getAccessCode}
