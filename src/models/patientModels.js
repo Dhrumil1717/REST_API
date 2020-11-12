@@ -1,8 +1,10 @@
-import mongoose, { mongo } from 'mongoose'
-
+//import mongoose, { mongo } from 'mongoose'
+const mongoose = require ('mongoose')
 const Schema = mongoose.Schema;
 
-export const addNewPatientSchema = new Schema ({
+
+
+const addNewPatientSchema = new Schema ({
     firstName : 
     {
         type: String,
@@ -89,7 +91,12 @@ export const addNewPatientSchema = new Schema ({
     consumeTobaccoOrSmoke: 
     {
         type: Boolean
+    },
+    condition:
+    {
+        type: String
     }
 });
 
+module.exports = addNewPatientSchema;
 

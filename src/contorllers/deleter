@@ -1,0 +1,35 @@
+ const updatePatient= (req,res) => 
+{
+    Patient.findOneAndUpdate({firstName:req.params.patientID},{$set: {condition: req.body.condition}},{new:true , useFindAndModify:false},(err,patient)=>
+        {
+            if(err)
+            {
+                res.send(err);
+            }
+            res.json(patient);
+            console.log("PUT request :Update patient by id ");
+        });  
+}
+
+ const updatePatient= (req,res) => 
+{
+    Patient.findOneAndUpdate({_id:req.params.patientID},req.body,{new:true , useFindAndModify:false},(err,patient)=>
+        {
+            if(err)
+            {
+                res.send(err);
+            }
+            res.json(patient);
+            console.log("PUT request :Update patient by id ");
+        });  
+}
+
+Patient.remove({_id:req.params.patientID},(err,patient)=>
+        {
+            if(err)
+            {
+                res.send(err);
+            }
+            res.json({message :'Successfully deleted patient record'});
+            console.log("DELETE request :Delete patient by id ")
+        });  
