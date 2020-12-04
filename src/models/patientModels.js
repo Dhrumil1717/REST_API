@@ -17,7 +17,7 @@ const addNewPatientSchema = new Schema ({
     },
     dateOfBirth : 
     {
-        type: Date
+        type: String
     },
 
     dateOfAdmission : 
@@ -95,8 +95,27 @@ const addNewPatientSchema = new Schema ({
     condition:
     {
         type: String
+    },
+    bloodPressure:
+    {
+        type:String
+    },
+    respiratoryRate:
+    {
+        type:String
+    },
+    bloodOxygenLevel:
+    {
+        type:String
+    },
+    heartbeatRate :
+    {
+        type:String
     }
+    
+
 });
+
 
 module.exports = addNewPatientSchema;
 
